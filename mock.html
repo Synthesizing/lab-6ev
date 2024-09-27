@@ -3,28 +3,47 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Learn about electric vehicles, how they work, their benefits, and the future of transportation.">
-    <title>Electric Vehicles - The Future of Transportation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the future of transportation with electric vehicles. Learn about their benefits, technology, and impact on the environment.">
+    <title>Electric Vehicles - Driving Towards a Sustainable Future</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --background-color: #F5F5F5;
+            --text-color: #333;
+            --header-bg: #1B1B1B;
+        }
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #F0F0F0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
         header {
-            background-color: #1B1B1B;
+            background-color: var(--header-bg);
             padding: 20px;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
             display: flex;
             align-items: center;
         }
-        header img {
-            width: 100px;
-            vertical-align: middle;
-        }
-        header h1 {
-            margin-left: 10px;
-            margin-right: auto;
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
         }
         nav ul {
             list-style: none;
@@ -38,9 +57,13 @@
             color: white;
             text-decoration: none;
             font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--primary-color);
         }
         .hero {
-            background-image: url('electric_vehicle.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
             height: 60vh;
             background-size: cover;
             background-position: center;
@@ -49,70 +72,151 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
-        .hero h2 {
-            font-size: 3em;
+        .hero h1 {
+            font-size: 3.5em;
             margin: 0;
-            color: #000000;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .hero p {
             font-size: 1.5em;
             margin-top: 10px;
-            color: #000000;
+            max-width: 600px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #45a049;
         }
         main {
-            padding: 20px;
-            background-color: #E8F5E9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
         section {
             background: white;
             border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            background-color: #1B1B1B;
-            color: white;
-            text-align: center;
-            padding: 10px;
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
         }
         .benefit-list {
             display: flex;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 20px;
         }
         .benefit-item {
-            flex: 1 1 200px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 250px;
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
         }
         .benefit-icon {
-            font-size: 2em;
-            color: #1B1B1B;
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            width: calc(33.333% - 10px);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .myth {
             background-color: #f9f9f9;
-            border-left: 4px solid #1B1B1B;
-            padding: 10px;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .charging-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .charging-types {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .charging-map {
+            flex: 1;
+        }
+        footer {
+            background-color: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .social-links {
             margin-top: 10px;
         }
-        @media (max-width: 600px) {
-            .hero h2 {
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+            nav li {
+                margin: 0 10px;
+            }
+            .hero h1 {
                 font-size: 2.5em;
             }
             .hero p {
                 font-size: 1.2em;
             }
-            header h1 {
-                font-size: 1.5em;
+            .image-gallery {
+                flex-direction: column;
+            }
+            .image-gallery img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .charging-info {
+                flex-direction: column;
+            }
+            .charging-types, .charging-map {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -120,21 +224,27 @@
 
 <body>
     <header>
-        <img src="electric_vehicle.jpg" alt="A sleek electric vehicle charging at a station" title="Electric Vehicle Charging">
-        <h1>Discover Electric Vehicles - Driving the Future!</h1>
-        <nav>
-            <ul>
-                <li><a href="#benefits">Benefits of EVs</a></li>
-                <li><a href="#why-ev">Why Choose Electric Vehicles?</a></li>
-                <li><a href="#charging">Charging Infrastructure</a></li>
-                <li><a href="#myths">Myths About EVs</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="EV Logo">
+                <h1>ElectricDrive</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#charging">Charging</a></li>
+                    <li><a href="#myths">Myths</a></li>
+                    <li><a href="#future">Future</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
-        <h2>Embrace the Electric Revolution</h2>
-        <p>Your journey into a sustainable future starts here!</p>
+        <h1>Power Your Journey, Sustainably</h1>
+        <p>Discover how electric vehicles are revolutionizing transportation and shaping a cleaner, greener future.</p>
+        <a href="#benefits" class="cta-button">Learn More</a>
     </section>
 
     <main>
@@ -142,69 +252,103 @@
             <h2>Benefits of Electric Vehicles</h2>
             <div class="benefit-list">
                 <div class="benefit-item">
-                    <span class="benefit-icon">🌍</span>
-                    <p>Zero tailpipe emissions, making them environmentally friendly.</p>
+                    <i class="fas fa-leaf benefit-icon"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Zero tailpipe emissions, significantly reducing your carbon footprint and improving air quality.</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">💰</span>
-                    <p>Lower operating costs compared to gasoline cars due to cheaper electricity.</p>
+                    <i class="fas fa-wallet benefit-icon"></i>
+                    <h3>Cost-Effective</h3>
+                    <p>Lower operating costs due to cheaper electricity and reduced maintenance needs.</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">🔧</span>
-                    <p>Reduced maintenance since EVs have fewer moving parts than traditional engines.</p>
+                    <i class="fas fa-tachometer-alt benefit-icon"></i>
+                    <h3>Performance</h3>
+                    <p>Instant torque for quick acceleration and a smooth, quiet driving experience.</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">⚡</span>
-                    <p>EVs are more energy efficient, converting over 60% of the electrical energy from the grid to power at the wheels.</p>
+                    <i class="fas fa-cog benefit-icon"></i>
+                    <h3>Low Maintenance</h3>
+                    <p>Fewer moving parts mean less wear and tear, resulting in lower maintenance costs.</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">🎁</span>
-                    <p>Many governments offer incentives and rebates for purchasing electric vehicles, making them more affordable.</p>
+                    <i class="fas fa-award benefit-icon"></i>
+                    <h3>Incentives</h3>
+                    <p>Government rebates and tax incentives make EVs more affordable than ever.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-bolt benefit-icon"></i>
+                    <h3>Energy Efficiency</h3>
+                    <p>EVs convert over 60% of electrical energy to power at the wheels, compared to 20% for gas vehicles.</p>
                 </div>
             </div>
         </section>
 
-        <section id="why-ev">
-            <h2>Why Choose Electric Vehicles?</h2>
-            <p>Electric vehicles (EVs) are revolutionizing the way we drive. They offer an eco-friendly alternative to
-                traditional gas-powered cars by running on electricity, reducing emissions, and helping combat climate
-                change. EVs are becoming more popular due to advancements in technology and increasing concern for the
-                environment.</p>
-            <p>In addition to their environmental benefits, EVs offer long-term cost savings. Although the initial purchase price may be higher, the lower cost of electricity compared to gasoline, along with reduced maintenance expenses, can make EVs more economical over time. Moreover, advancements in battery technology are leading to longer ranges and faster charging times, making electric vehicles more practical for everyday use.</p>
-            <img src="ev_driving.jpg" alt="An electric car driving through a city" title="Electric Vehicle on the Road">
+        <section id="technology">
+            <h2>EV Technology: Powering the Future</h2>
+            <p>Electric vehicles are at the forefront of automotive innovation, combining cutting-edge battery technology with advanced electric motors and smart systems. Here's a look at the key components that make EVs so revolutionary:</p>
+            <ul>
+                <li><strong>High-Capacity Batteries:</strong> Lithium-ion batteries store large amounts of energy, providing ranges of 200+ miles on a single charge.</li>
+                <li><strong>Efficient Electric Motors:</strong> Powerful yet compact, these motors deliver instant torque for superior performance.</li>
+                <li><strong>Regenerative Braking:</strong> Captures energy during deceleration, extending range and reducing brake wear.</li>
+                <li><strong>Smart Energy Management:</strong> Advanced systems optimize power usage for maximum efficiency.</li>
+                <li><strong>Fast-Charging Capability:</strong> Many EVs can charge up to 80% in just 30 minutes at fast-charging stations.</li>
+            </ul>
+            <div class="image-gallery">
+                <img src="/api/placeholder/400/300" alt="EV Battery Diagram" title="High-Capacity EV Battery">
+                <img src="/api/placeholder/400/300" alt="Electric Motor" title="Efficient Electric Motor">
+                <img src="/api/placeholder/400/300" alt="Regenerative Braking System" title="Regenerative Braking in Action">
+            </div>
         </section>
 
         <section id="charging">
             <h2>Charging Infrastructure</h2>
-            <p>The growth of charging infrastructure is vital for the widespread adoption of electric vehicles. Today, charging stations can be found in urban areas, shopping centers, and along highways, making it easier than ever to charge your vehicle while on the go. Many electric vehicle owners also opt for home charging stations, which allow for convenient overnight charging.</p>
-            <p>Charging options vary, including Level 1 chargers, which are standard household outlets, and Level 2 chargers, which are more powerful and can significantly reduce charging time. Additionally, fast-charging stations are becoming more common, allowing drivers to recharge their vehicles in under an hour.</p>
-            <p>As the demand for electric vehicles grows, so too does the investment in charging infrastructure, ensuring that EV drivers have access to reliable and convenient charging options.</p>
-            <img src="ev_charging.jpg" alt="An electric vehicle plugged into a charging station" title="Charging an Electric Vehicle">
+            <p>The growth of charging infrastructure is crucial for the widespread adoption of electric vehicles. Today's charging options cater to various needs and scenarios:</p>
+            <div class="charging-info">
+                <div class="charging-types">
+                    <h3>Charging Options</h3>
+                    <ul>
+                        <li><strong>Level 1 (120V):</strong> Standard household outlet, ideal for overnight charging at home.</li>
+                        <li><strong>Level 2 (240V):</strong> Faster charging for home and public use, fully charges most EVs in 4-8 hours.</li>
+                        <li><strong>DC Fast Charging:</strong> Provides up to 80% charge in 30 minutes, perfect for long trips.</li>
+                    </ul>
+                </div>
+                <div class="charging-map">
+                    <h3>Find Charging Stations</h3>
+                    <img src="/api/placeholder/400/300" alt="EV Charging Station Map" title="EV Charging Station Locations">
+                    <p>Use apps like PlugShare or ChargePoint to locate nearby charging stations.</p>
+                </div>
+            </div>
         </section>
 
         <section id="myths">
-            <h2>Common Myths About Electric Vehicles</h2>
+            <h2>Debunking EV Myths</h2>
             <div class="myth">
-                <strong>Myth 1:</strong> Electric vehicles have a short range. <br>
-                Fact: Many modern EVs can travel over 250 miles on a single charge, making them practical for most daily driving needs.
+                <h3>Myth: EVs have a limited range</h3>
+                <p><strong>Fact:</strong> Many modern EVs offer ranges of 250+ miles on a single charge, with some models exceeding 400 miles. This is more than sufficient for daily use and most long trips.</p>
             </div>
             <div class="myth">
-                <strong>Myth 2:</strong> Charging an EV takes too long. <br>
-                Fact: With fast chargers, you can charge your vehicle to 80% in about 30 minutes.
+                <h3>Myth: Charging takes too long</h3>
+                <p><strong>Fact:</strong> While charging times vary, fast-charging stations can provide up to 80% charge in about 30 minutes. For daily use, overnight home charging is convenient and sufficient.</p>
             </div>
             <div class="myth">
-                <strong>Myth 3:</strong> EVs are not powerful enough. <br>
-                Fact: Electric motors provide instant torque, resulting in quick acceleration and a thrilling driving experience.
+                <h3>Myth: EVs are more expensive</h3>
+                <p><strong>Fact:</strong> While the initial cost may be higher, EVs often have lower total ownership costs due to reduced fuel and maintenance expenses. Government incentives can also significantly reduce the purchase price.</p>
+            </div>
+            <div class="myth">
+                <h3>Myth: EVs are not environmentally friendly due to battery production</h3>
+                <p><strong>Fact:</strong> While battery production does have an environmental impact, studies show that EVs have a lower overall carbon footprint compared to gas vehicles over their lifetime, especially as renewable energy sources grow.</p>
             </div>
         </section>
 
-        <p>Visit this <a href="https://www.energy.gov/eere/electricvehicles/electric-vehicles" target="_blank">website</a> for more information on electric vehicles.</p>
-    </main>
-
-    <footer>
-        &copy; 2024 Electric Future. All rights reserved.
-    </footer>
-
-</body>
-
-</html>
+        <section id="future">
+            <h2>The Future of Electric Vehicles</h2>
+            <p>The electric vehicle industry is rapidly evolving, with exciting developments on the horizon:</p>
+            <ul>
+                <li><strong>Improved Battery Technology:</strong> Expect longer ranges, faster charging times, and more affordable batteries.</li>
+                <li><strong>Expanded Charging Networks:</strong> Increasing investment in public charging infrastructure will make long-distance EV travel even more convenient.</li>
+                <li><strong>Vehicle-to-Grid (V2G) Technology:</strong> EVs could become part of smart energy grids, storing and supplying electricity to balance grid demand.</li>
+                <li><strong>Autonomous Electric Vehicles:</strong> The combination of electric and self-driving technologies could revolutionize transportation and urban planning.</li>
+                <li><strong>Diverse Vehicle Types:</strong> From compact cars to trucks and buses, expect to see EVs in all shapes and sizes.</li>
+            </ul>
+            <p>As technology advances and adoption grows, electric vehicles are set to play
